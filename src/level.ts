@@ -9,12 +9,11 @@
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the
 // specific language governing permissions and limitations under the License.
 
+import { GameConstants, MapObject, LevelObject } from '@cartesi/creepts-engine';
 
-import { GameConstants, MapObject, LevelObject } from "@cartesi/creepts-engine";
-
-import enemies from "./resources/enemies.json";
-import turrets from "./resources/turrets.json";
-import waves from "./resources/waves.json";
+import enemies from './resources/enemies.json';
+import turrets from './resources/turrets.json';
+import waves from './resources/waves.json';
 
 export default (map: MapObject): LevelObject => {
     // build level object using map and constant values
@@ -27,11 +26,11 @@ export default (map: MapObject): LevelObject => {
             credits: GameConstants.INITIAL_CREDITS,
             lifes: GameConstants.INITIAL_LIFES,
             boardSize: map.size,
-            enemiesPathCells : map.path,
+            enemiesPathCells: map.path,
             plateausCells: map.plateaus
         },
         enemiesData: enemies,
         turretsData: turrets,
         wavesData: waves
-    }
+    };
 };

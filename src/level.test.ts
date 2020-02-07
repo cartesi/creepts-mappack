@@ -10,10 +10,14 @@
 // License for the specific language governing permissions and limitations 
 // under the License.
 
+
+import { loadMap } from './map';
 import loadLevel from './level';
 
-export { loadMap } from './map';
-export { loadEnemies } from './enemy';
-export { loadWaves } from './wave';
-export { loadTurrets } from './turret';
-export { loadLevel };
+test('original', () => {
+    const original = loadMap("original");
+    const levelOriginal = loadLevel(original);
+    expect(levelOriginal.gameConfig.boardSize.c).toBe(original.size.c);
+    expect(levelOriginal.gameConfig.boardSize.r).toBe(original.size.r);
+    expect(levelOriginal.gameConfig.lifes).toBe(20);
+});

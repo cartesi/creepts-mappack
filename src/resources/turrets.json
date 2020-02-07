@@ -1,0 +1,14 @@
+{
+    "projectile": {
+        "price": 100
+    },
+    "laser": {
+        "price": 150
+    },
+    "launch": {
+        "price": 250
+    },
+    "glue": {
+        "price": 500
+    }
+}

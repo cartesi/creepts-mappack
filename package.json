@@ -1,0 +1,27 @@
+{
+  "name": "@cartesi/creepts-mappack",
+  "version": "1.0.0",
+  "description": "Creepts Game Map Pack",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "cartesi",
+    "creepts"
+  ],
+  "author": "Danilo Tuler (danilo@cartesi.io)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@cartesi/creepts-engine": "file:../creepts-engine"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/jest": "^25.1.1",
+    "@types/node": "^13.7.0",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0"
+  }
+}

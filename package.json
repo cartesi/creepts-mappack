@@ -18,10 +18,10 @@
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
     "fix": "run-s fix:*",
-    "fix:prettier": "prettier \"src/**/*.ts\" --tab-width 4 --write",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:tslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "test": "run-s build test:*",
-    "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx && prettier \"src/**/*.ts\" --tab-width 4 --list-different",
+    "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx && prettier \"src/**/*.ts\" --list-different",
     "test:unit": "jest --coverage",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
     "cov": "run-s build test:unit cov:html && open-cli coverage/index.html",
@@ -57,6 +57,7 @@
     "@cartesi/creepts-engine": "file:../creepts-engine"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.8.4",
     "@babel/preset-typescript": "^7.8.3",
     "@bitjson/npm-scripts-info": "^1.0.0",
     "@bitjson/typedoc": "^0.15.0-0",
@@ -65,7 +66,6 @@
     "@types/node": "^13.7.0",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
-    "ava": "2.2.0",
     "codecov": "^3.5.0",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^6.8.0",
@@ -80,27 +80,20 @@
     "trash-cli": "^3.0.0",
     "typescript": "^3.7.5"
   },
-  "ava": {
-    "failFast": true,
-    "files": [
-      "build/main/**/*.spec.js"
-    ],
-    "sources": [
-      "build/main/**/*.js"
-    ]
-  },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "tabWidth": 4
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
     "exclude": [
-      "**/*.spec.js"
+      "**/*.spec.js",
+      "**/*.test.js"
     ]
   }
 }

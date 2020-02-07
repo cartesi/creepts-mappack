@@ -22,15 +22,15 @@
     "fix:tslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "test": "run-s build test:*",
     "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx && prettier \"src/**/*.ts\" --list-different",
-    "test:unit": "jest --coverage",
+    "test:unit": "nyc --clean jest --coverage",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
     "cov": "run-s build test:unit cov:html && open-cli coverage/index.html",
     "cov:html": "nyc report --reporter=html",
     "cov:send": "nyc report --reporter=lcov && codecov",
     "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
     "doc": "run-s doc:html && open-cli build/docs/index.html",
-    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
-    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc:html": "typedoc src/ --exclude **/*.test.ts --target ES6 --mode file --out build/docs",
+    "doc:json": "typedoc src/ --exclude **/*.test.ts --target ES6 --mode file --json build/docs/typedoc.json",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && npm i",
@@ -89,7 +89,17 @@
     "singleQuote": true,
     "tabWidth": 4
   },
+  "jest": {
+    "coverageReporters": [
+      "json"
+    ]
+  },
   "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "tempDirectory": "./coverage",
     "extends": "@istanbuljs/nyc-config-typescript",
     "exclude": [
       "**/*.spec.js",

@@ -14,9 +14,14 @@ import { loadMap } from './map';
 
 test('map original', () => {
     const map = loadMap('original');
-    expect(map.name).toBe('The Original');
-    expect(map.path.length).toBe(46);
-    expect(map.plateaus.length).toBe(0);
-    expect(map.size.r).toBe(15);
-    expect(map.size.c).toBe(10);
+    expect(map?.name).toBe('The Original');
+    expect(map?.path?.length).toBe(46);
+    expect(map?.plateaus?.length).toBe(0);
+    expect(map?.size?.r).toBe(15);
+    expect(map?.size?.c).toBe(10);
+});
+
+test('invalid', () => {
+    const map = loadMap('invalid');
+    expect(map).toBeUndefined();
 });

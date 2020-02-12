@@ -15,8 +15,9 @@ import loadLevel from './level';
 
 test('original', () => {
     const original = loadMap('original');
-    const levelOriginal = loadLevel(original);
-    expect(levelOriginal.gameConfig.boardSize.c).toBe(original.size.c);
-    expect(levelOriginal.gameConfig.boardSize.r).toBe(original.size.r);
+    /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
+    const levelOriginal = loadLevel(original!);
+    expect(levelOriginal.gameConfig.boardSize.c).toBe(original?.size?.c);
+    expect(levelOriginal.gameConfig.boardSize.r).toBe(original?.size?.r);
     expect(levelOriginal.gameConfig.lifes).toBe(20);
 });

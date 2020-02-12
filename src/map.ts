@@ -12,6 +12,14 @@
 
 import { MapObject } from '@cartesi/creepts-engine';
 
-export const loadMap = (name: string): MapObject => {
-    return require(`./maps/${name}.json`);
+export const loadMap = (name: string): MapObject | undefined => {
+    try {
+        return require(`./maps/${name}.json`);
+    } catch (err) {
+        if (err.code === 'MODULE_NOT_FOUND') {
+            return undefined;
+        } else {
+            throw err;
+        }
+    }
 };

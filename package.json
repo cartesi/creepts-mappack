@@ -13,7 +13,7 @@
     "creepts"
   ],
   "scripts": {
-    "describe": "npm-scripts-info",
+    "info": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
@@ -54,7 +54,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "@cartesi/creepts-engine": "file:../creepts-engine"
+    "@cartesi/creepts-engine": "^0.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.4",

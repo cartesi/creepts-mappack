@@ -1,6 +1,6 @@
 {
   "name": "@cartesi/creepts-mappack",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Creepts Game Map Pack",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -54,7 +54,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "@cartesi/creepts-engine": "^0.1.0"
+    "@cartesi/creepts-engine": "^0.2.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.4",

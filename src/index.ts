@@ -12,7 +12,7 @@
 
 import loadLevel from './level';
 
-export { loadMap } from './map';
+export { loadMap, maps } from './map';
 export { loadEnemies } from './enemy';
 export { loadWaves } from './wave';
 export { loadTurrets } from './turret';

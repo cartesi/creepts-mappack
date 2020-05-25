@@ -22,7 +22,14 @@ import { loadMap } from "@cartesi/creepts-mappack";
 const map: MapObject = loadMap("original");
 ```
 
-For a complete list of available maps check the directory `src/maps`.
+For a complete list of available maps check the directory `src/maps`. There is also a function which returns an array of the names of all available maps.
+
+```javascript
+import { maps } from "@cartesi/creepts-mappack";
+
+// get the list of map names
+const maps: string[] = maps();
+```
 
 ### Levels
 

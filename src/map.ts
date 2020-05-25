@@ -12,6 +12,8 @@
 
 import { MapObject } from '@cartesi/creepts-engine';
 
+export const maps = (): string[] => require('./resources/maps.json');
+
 export const loadMap = (name: string): MapObject | undefined => {
     try {
         return require(`./maps/${name}.json`);
